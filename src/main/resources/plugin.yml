@@ -1,0 +1,7 @@
+name: DeathTax
+version: '${project.version}'
+main: com.jbouchier.deathtax.DeathTax
+api-version: '1.20'
+authors: [TheMrJezza]
+softdepend:
+  - Vault

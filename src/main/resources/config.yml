@@ -1,0 +1,25 @@
+#                        DeathTax Config                        #
+#################################################################
+#
+# What is the minimum balance a player must have to be taxed?
+minimum-balance: 10.50
+#
+# The amount of currency to tax
+death-tax-amount: 10.50
+#
+# How much of the taxed amount should go to PvP killers?
+# Note: If this amount is greater than or equal to the tax amount
+#       then all the "tax amount" will go to the killer.
+amount-to-killer: 2.50
+#
+# Who receives the collected tax?
+tax-collector-uuid: "ca0ff430-c302-48e3-8809-a8e40327e7cd"
+#
+# What do we tell someone when they're taxed?
+victim-notification: "&aDeathTax&7: &e${TAX}"
+#
+# What do we tell the banker when they're paid tax?
+banker-notification: "&aDeathTax&7: &eDeposited ${TAX}"
+#
+# What do we tell the killer when they receive some reward tax?
+killer-notification: "&aDeathTax&7: &eDeposited ${TAX}"
