@@ -81,4 +81,11 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+    <distributionManagement>
+        <repository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>github</id>
+            <layout>default</layout>
+        </repository>
+    </distributionManagement>
 </project>
