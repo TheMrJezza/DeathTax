@@ -83,9 +83,9 @@
     </dependencies>
     <distributionManagement>
         <repository>
-            <uniqueVersion>false</uniqueVersion>
             <id>github</id>
-            <layout>default</layout>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/jbouchier/spigot-death-tax</url>
         </repository>
     </distributionManagement>
 </project>
