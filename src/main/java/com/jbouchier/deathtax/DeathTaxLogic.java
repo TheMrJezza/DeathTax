@@ -9,6 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.plugin.Plugin;
 
+import java.nio.file.Files;
 import java.util.UUID;
 import java.util.logging.Logger;
 
@@ -29,7 +30,7 @@ public class DeathTaxLogic implements Listener {
             final var rsp = plugin.getServer().getServicesManager().getRegistration(Economy.class);
             if (rsp != null) {
                 this.econ = rsp.getProvider();
-                plugin.saveDefaultConfig();
+                if (!Files.exists(plugin.getDataFolder().toPath().resolve("plugin.yml"))) plugin.saveDefaultConfig();
                 plugin.reloadConfig();
                 try {
                     final var bankerID = plugin.getConfig().getString("tax-collector-uuid", "");
@@ -103,17 +104,15 @@ public class DeathTaxLogic implements Listener {
             }
         }
 
-        if (taxCollected > 0) {
-            if (handleCash(true, taxCollected, banker, "Unable to pay banker collected DeathTax")) {
-                if (taxCollected != taxAmount) {
-                    if (player.getKiller() != null) {
-                        log.info("Tax Collection Incomplete: ");
-                        log.info("Collected: %.02f".formatted(taxCollected));
-                        log.info("Owed: %.02f".formatted(taxAmount));
-                        log.info("Killer: " + player.getKiller().getName());
-                    }
-                }
-            }
+        if (taxCollected <= 0) return;
+        if (!handleCash(true, taxCollected, banker, "Unable to pay banker collected DeathTax")) return;
+
+        if (taxCollected != taxAmount) {
+            log.info("Tax Collection Incomplete: ");
+            log.info("Collected: %.02f".formatted(taxCollected));
+            log.info("Owed: %.02f".formatted(taxAmount));
+            log.info("Victim: " + player.getName());
+            if (player.getKiller() != null) log.info("Killer: " + player.getKiller().getName());
         }
     }
 }

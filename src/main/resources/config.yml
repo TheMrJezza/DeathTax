@@ -20,7 +20,7 @@ amount-to-killer: 4.50
 tax-collector-uuid: "ca0ff430-c302-48e3-8809-a8e40327e7cd"
 #
 # What do we tell someone when they're taxed?
-taxed-notification: "&aDeathTax&7: &e${TAX}"
+taxed-notification: "&aDeathTax&7: &cTaxed &e${TAX}"
 #
 # What do we tell someone when they're paid tax?
-tax-received-notification: "&aDeathTax&7: &eDeposited ${TAX}"
+tax-received-notification: "&aDeathTax&7: &aDeposited &e${TAX}"
