@@ -81,4 +81,11 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/jbouchier/spigot-death-tax</url>
+        </repository>
+    </distributionManagement>
 </project>
